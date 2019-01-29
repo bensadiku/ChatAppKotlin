@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "120804369611",
+    "firebase_url": "https://chatappkotlin-1d2ec.firebaseio.com",
+    "project_id": "chatappkotlin-1d2ec",
+    "storage_bucket": "chatappkotlin-1d2ec.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:120804369611:android:1dc0f2a84a06aedc",
+        "android_client_info": {
+          "package_name": "com.chatapp.bensadiku"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "120804369611-j46gme0ee3r9vcjt6safkl87osq0aa52.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDSaZscHYbCqXdZanVud0W4FaAJ5fe1Uz8"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
