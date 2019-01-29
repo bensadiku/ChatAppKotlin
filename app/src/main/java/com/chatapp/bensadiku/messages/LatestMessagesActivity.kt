@@ -1,4 +1,4 @@
-package com.chatapp.bensadiku
+package com.chatapp.bensadiku.messages
 
 import android.content.Intent
 import android.support.v7.app.AppCompatActivity
@@ -6,7 +6,8 @@ import android.os.Bundle
 import android.support.v7.widget.Toolbar
 import android.view.Menu
 import android.view.MenuItem
-import android.widget.Toast
+import com.chatapp.bensadiku.R
+import com.chatapp.bensadiku.reglogin.RegisterActivity
 import com.google.firebase.auth.FirebaseAuth
 
 class LatestMessagesActivity : AppCompatActivity() {
@@ -49,7 +50,7 @@ class LatestMessagesActivity : AppCompatActivity() {
     override fun onStart() {
         super.onStart()
         if(uid==null){
-            val intent= Intent(this,RegisterActivity::class.java)
+            val intent= Intent(this, RegisterActivity::class.java)
             intent.flags= Intent.FLAG_ACTIVITY_CLEAR_TASK.or(Intent.FLAG_ACTIVITY_NEW_TASK)
             startActivity(intent)
         }

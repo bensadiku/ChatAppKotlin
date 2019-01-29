@@ -1,10 +1,11 @@
-package com.chatapp.bensadiku
+package com.chatapp.bensadiku.messages
 
-import android.content.Context
+import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
-import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.Toolbar
+import com.chatapp.bensadiku.R
+import com.chatapp.bensadiku.model.User
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
@@ -31,6 +32,10 @@ class NewMessageActivity : AppCompatActivity() {
 
     }
 
+    companion object {
+        val USER_KEY="USER_KEY"
+    }
+
     private fun fetchUsers() {
     val ref=    FirebaseDatabase.getInstance().getReference("/users/")
         ref.addListenerForSingleValueEvent(object :ValueEventListener{
@@ -44,6 +49,17 @@ class NewMessageActivity : AppCompatActivity() {
                     }
 
                 }
+                adapter.setOnItemClickListener { item, view ->
+                    val userItem = item as UserItem
+                    val intent= Intent(view.context,ChatLogActivity::class.java)
+                  //  intent.putExtra(USER_KEY,userItem.user.username)
+
+                    intent.putExtra(USER_KEY,userItem.user)
+
+                    startActivity(intent)
+                    finish()
+                }
+
                 recyclerview_newmessage.adapter = adapter
             }
 
@@ -54,7 +70,8 @@ class NewMessageActivity : AppCompatActivity() {
     }
 }
 
-class UserItem(val user:User) :Item<ViewHolder>(){
+
+class UserItem(val user: User) :Item<ViewHolder>(){
     override fun getLayout(): Int {
         return R.layout.user_row_new_message
     }

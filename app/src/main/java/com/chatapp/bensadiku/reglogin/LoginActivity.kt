@@ -1,7 +1,8 @@
-package com.chatapp.bensadiku
+package com.chatapp.bensadiku.reglogin
 
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import com.chatapp.bensadiku.R
 import com.google.firebase.auth.FirebaseAuth
 import kotlinx.android.synthetic.main.activity_login.*
 

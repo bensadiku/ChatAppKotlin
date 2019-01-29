@@ -1,13 +1,15 @@
-package com.chatapp.bensadiku
+package com.chatapp.bensadiku.reglogin
 
 import android.app.Activity
 import android.content.Intent
-import android.graphics.drawable.BitmapDrawable
 import android.net.Uri
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.provider.MediaStore
 import android.widget.Toast
+import com.chatapp.bensadiku.R
+import com.chatapp.bensadiku.messages.LatestMessagesActivity
+import com.chatapp.bensadiku.model.User
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.storage.FirebaseStorage
@@ -93,13 +95,14 @@ class RegisterActivity : AppCompatActivity() {
 
     private fun saveUserToFirebaseDB(profileImageUrl: String) {
        val ref= FirebaseDatabase.getInstance().getReference("/users/$currentUid")
-        val user=User(currentUid,username_edittext_register.text.toString(),profileImageUrl)
+        val user=
+            User(currentUid, username_edittext_register.text.toString(), profileImageUrl)
 
         ref.setValue(user)
             .addOnSuccessListener {
                 Toast.makeText(this,"Successfully created account ",Toast.LENGTH_SHORT).show()
 
-                val intent = Intent(this,LatestMessagesActivity::class.java)
+                val intent = Intent(this, LatestMessagesActivity::class.java)
                 intent.flags= Intent.FLAG_ACTIVITY_CLEAR_TASK.or(Intent.FLAG_ACTIVITY_NEW_TASK)
                 startActivity(intent)
             }.addOnFailureListener {
@@ -113,7 +116,3 @@ class RegisterActivity : AppCompatActivity() {
     }
 }
 
-
-class User(val uid:String,val username:String,val profileImageUrl:String){
-    constructor():this("","","")
-}
