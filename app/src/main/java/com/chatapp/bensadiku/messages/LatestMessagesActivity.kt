@@ -5,12 +5,10 @@ import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.support.v7.widget.DividerItemDecoration
 import android.support.v7.widget.Toolbar
-import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
-import android.widget.Toast
 import com.chatapp.bensadiku.R
-import com.chatapp.bensadiku.messages.views.LatestMessageRow
+import com.chatapp.bensadiku.views.LatestMessageRow
 import com.chatapp.bensadiku.model.ChatMessage
 import com.chatapp.bensadiku.model.User
 import com.chatapp.bensadiku.reglogin.RegisterActivity
